@@ -1,0 +1,12 @@
+name: Cpp compile check
+run-name: ${{ github.actor }} pushed new code, does it work?
+on:
+  pull_request:
+    branches: ['main']
+    paths: ['Snake/**']
+jobs:
+  Test-job:
+    runs-on: ubunto-latest
+    steps:
+      - run: echo "this code was triggered."
+      - run: echo "this code was also triggered."
