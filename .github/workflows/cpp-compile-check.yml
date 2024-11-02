@@ -1,12 +1,30 @@
+#based on: https://docs.platformio.org/en/stable/integration/ci/github-actions.html
+
 name: Cpp compile check
 run-name: ${{ github.actor }} pushed new code, does it work?
 on:
   pull_request:
     branches: ['main']
     paths: ['Snake/**']
+
 jobs:
-  Test-job:
+  build:
     runs-on: ubuntu-latest
+
     steps:
-      - run: echo "this code was triggered."
-      - run: echo "this code was also triggered."
+      - uses: actions/checkout@v4
+      - uses: actions/cache@v4
+        with:
+          path:
+            ~/.cache/pip
+            ~/.platformio/.cache
+          key: ${{ runner.os}}-pio
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install PlatformIO Core
+        run: pip install --upgrade platformio
+      
+      - name: Build PlatformIO Project
+        run: cd Snake
+        run: pio run
