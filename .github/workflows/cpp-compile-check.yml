@@ -2,11 +2,11 @@
 
 name: Cpp compile check
 run-name: ${{ github.actor }} pushed new code, does it work?
+on: workflow_dispatch
 on:
   pull_request:
     branches: ['main']
     paths: ['Snake/**']
-  workflow_dispatch
 
 
 jobs:
