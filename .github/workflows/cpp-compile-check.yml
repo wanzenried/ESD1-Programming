@@ -6,7 +6,7 @@ on:
     paths: ['Snake/**']
 jobs:
   Test-job:
-    runs-on: ubunto-latest
+    runs-on: ubuntu-latest
     steps:
       - run: echo "this code was triggered."
       - run: echo "this code was also triggered."
