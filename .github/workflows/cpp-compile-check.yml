@@ -25,7 +25,7 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
       
-      - run: cd Snake
+      #- run: cd Snake
       
       - name: Build PlatformIO Project
         run: pio run
