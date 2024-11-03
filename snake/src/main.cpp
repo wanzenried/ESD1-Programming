@@ -7,29 +7,27 @@ void handleUser();
 void pushSnake(int x, int y);
 void updateSnake();
 
+
 // Definitions
 #define snakeMaxLen 20
-
 
 // period time for game engine
 #define TIMEPER 200
 unsigned long gameTime;
 
-int dirX = 1;
-int dirY = 0;
-
+//Structs
 typedef struct
 {
   int x;
   int y;
 } snakePart;
 
+int dirX = 1;
+int dirY = 0;
 
 int snakeLen = 0;
 
 snakePart snakeArr[snakeMaxLen];
-
-
 
 void pushSnake(int x, int y) {
   snakePart s = {x, y};
