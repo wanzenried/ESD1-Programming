@@ -6,7 +6,7 @@ void doGameEngine();
 void handleUser();
 void pushSnake(int x, int y);
 void updateSnake();
-
+bool snakeCollision(int x, int y);
 
 // Definitions
 #define snakeMaxLen 20
@@ -48,6 +48,19 @@ void updateSnake() {
   
 }
 
+//check if specific coordinate (of the snakes head) collides with the snake
+//Does not check the head of the snake, as the snake head cannot collide with itself
+bool snakeCollision(int x, int y){
+  for (int i = 1; i < snakeLen; i++)
+  {
+    if (snakeArr[i].x == x && snakeArr[i].y == y)
+    {
+      return true;
+    }
+  }
+  //if this part of the code is reached, no part of the snake is touching the supplied coords
+  return false;
+}
 
 
 
