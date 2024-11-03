@@ -1,14 +1,13 @@
 #based on: https://docs.platformio.org/en/stable/integration/ci/github-actions.html
 
-name: Cpp compile check
-run-name: ${{ github.actor }} pushed new code, does it work?
+name: Snake compile check
+run-name: ${{ github.actor }} opened a PR on the snake project, does it compile?
 
 on:
   pull_request:
     branches: ['main']
     paths: ['Snake/**']
   workflow_dispatch:
-
 
 jobs:
   build:
@@ -28,9 +27,7 @@ jobs:
       - name: Install PlatformIO Core
         run: pip install --upgrade platformio
       
-      #- run: cd Snake
-      
       - name: Build PlatformIO Project
         run: |
-          cd Snake
+          cd snake
           pio run
