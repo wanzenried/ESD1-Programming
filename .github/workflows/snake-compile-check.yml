@@ -6,7 +6,7 @@ run-name: ${{ github.actor }} opened a PR on the snake project, does it compile?
 on:
   pull_request:
     branches: ['main']
-    paths: ['Snake/**']
+    paths: ['snake/**']
   workflow_dispatch:
 
 jobs:
