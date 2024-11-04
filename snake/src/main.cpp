@@ -67,14 +67,14 @@ bool snakeCollision(int x, int y){
 void doGameEngine() {
   saveCursor();
 
+  //Remove last part of the snakes tail
+  eraseCh(snakeArr[snakeLen-1].x, snakeArr[snakeLen-1].y);
+
   updateSnake();
 
   //print the new location of the head
   setCursor(snakeArr[0].x,snakeArr[0].y);
   sp("#");
-
-  //Remove last part of the snakes tail
-  eraseCh(snakeArr[snakeLen-1].x, snakeArr[snakeLen-1].y);
 
   restoreCursor();
 }
