@@ -7,6 +7,7 @@ void handleUser();
 void pushSnake(int x, int y);
 void updateSnake();
 bool snakeCollision(int x, int y);
+void resetSnake(int x, int y);
 
 // Definitions
 #define snakeMaxLen 20
@@ -62,6 +63,18 @@ bool snakeCollision(int x, int y){
   return false;
 }
 
+//resets the position of the snake to the given coordinates
+//Also resets the length of the snake back to 1 and clears the screen
+void resetSnake(int x, int y)
+{
+  snakeArr[0].x = x;
+  snakeArr[0].y = y;
+
+  snakeLen = 1;
+
+  clrScreen();
+}
+
 
 
 void doGameEngine() {
@@ -100,6 +113,7 @@ void handleUser() {
         dirY = -1*tmp;
         break;
       case 'c':
+        
         
         break;
       default:;
